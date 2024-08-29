@@ -40,9 +40,15 @@ This project involves setting up a directory structure, creating user accounts, 
 
 1. **`create_users.sh`**
    This script requires one argument: a file with lines in the format `username:group1,group2`. It creates users and assigns them to the specified groups.
+   ```bash
+   ./create_groups.sh groups.txt
+   ```
 
 2. **`create_groups.sh`**
    This script requires one argument: a file with one group per line. It creates the specified groups.
+   ```bash
+   ./create_users.sh users.txt
+   ```
 
 3. **`create_project.sh`**
    This script orchestrates the entire setup:
@@ -50,26 +56,4 @@ This project involves setting up a directory structure, creating user accounts, 
    - It handles user and group creation.
    - It recursively adjusts folder permissions.
 
-## Usage
-
-1. **Run `create_groups.sh`**
-   ```bash
-   ./create_groups.sh groups.txt
-   ```
-
-2. **Run `create_users.sh`**
-   ```bash
-   ./create_users.sh users.txt
-   ```
-
-3. **Run `create_project.sh`**
-   ```bash
-   ./create_project.sh
-   ```
-
-## Notes
-
-- Ensure that `groups.txt` and `users.txt` are formatted correctly.
-- Check the permissions and existence of the default folders in `/etc/skel`.
-
-For further assistance or troubleshooting, refer to the script comments and documentation.
+For further information refer to the scripts and script comments
