@@ -55,5 +55,8 @@ This project involves setting up a directory structure, creating user accounts, 
    - It populates `/etc/skel` with default folders.
    - It handles user and group creation.
    - It recursively adjusts folder permissions.
+   ```bash
+   ./create_projects.sh
+   ```
 
 For further information refer to the scripts and script comments
