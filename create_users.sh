@@ -22,11 +22,12 @@ for line in "${input[@]}"; do
     # Generate a random password
     password=$(openssl rand -base64 12)
 
-    # Add user, set default shell to bash, create home directory, and force password change on first login
-    if output=$(useradd -m -s /bin/bash -e 0 "$user" 2>&1); then
+    # Add user, set default shell to bash, create home directory
+    if output=$(useradd -m -s /bin/bash "$user" 2>&1); then
         echo "Benutzer '$user' erfolgreich angelegt."
     else
         echo "Fehler beim Anlegen des Benutzers '$user': $output"
+        # next iteration in for loop, the following code would fail anyways 
         continue
     fi
 
