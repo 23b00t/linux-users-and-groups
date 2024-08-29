@@ -39,7 +39,7 @@ This project involves setting up a directory structure, creating user accounts, 
 ### Scripts
 
 1. **`create_users.sh`**
-   This script requires one argument: a file with lines in the format `username:group1,group2`. It creates users and assigns them to the specified groups.
+   This script requires one argument: a file with lines in the format `username:group1,group2`. It creates users and assigns them to the specified groups. The users receive a random password, which is saved in the file passwords.txt, and must create a new password upon their first login.
    ```bash
    ./create_groups.sh groups.txt
    ```
