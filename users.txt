@@ -1,0 +1,7 @@
+bill:boss
+jim:hr
+john:hr
+alice:it
+bob:it
+tim:sale
+tom:sale
