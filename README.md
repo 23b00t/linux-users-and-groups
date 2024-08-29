@@ -59,4 +59,4 @@ This project involves setting up a directory structure, creating user accounts, 
    ./create_projects.sh
    ```
 
-For further information refer to the scripts and script comments
+For further information refer to the scripts and script comments. Ensure the scripts are executable and run them as root or with sudo.
