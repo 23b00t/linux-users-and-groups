@@ -1,7 +1,7 @@
-bill:boss
-jim:hr
-john:hr
-alice:it
-bob:it
-tim:sale
-tom:sale
+bill:boss,firma
+jim:hr,firma
+john:hr,firma
+alice:it,firma
+bob:it,firma
+tim:sale,firma
+tom:sale,firma
