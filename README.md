@@ -60,3 +60,20 @@ This project involves setting up a directory structure, creating user accounts, 
    ```
 
 For further information refer to the scripts and script comments. Ensure the scripts are executable and run them as root or with sudo.
+
+## Remove created users, groups and folders
+
+```bash
+# Delete users and home dirs
+for user in bill jim john alice bob tim tom; do sudo userdel -r "$user"; done
+```
+
+```bash
+# Delete groups
+for user in it hr boss sale; do sudo groupdel "$user"; done
+```
+
+```bash
+# Delete project dirs
+sudo rm -r /home/firma
+```

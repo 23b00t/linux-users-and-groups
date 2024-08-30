@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # prepare /etc/skel
 for folder in Documents Downloads Pictures Music Videos Templates Desktop Public; do
@@ -20,8 +20,10 @@ mkdir -p /home/firma/{boss/bill,hr/{jim,john},it/{alice,bob},sale/{tim,tom}}
 
 # set folder permissions
 # go through all directories recursively
+# find all directories in /home/firma, read them literally as $dir and loop
+# while read gets piped input from find
 find /home/firma -type d | while read -r dir; do
-    # Extract the name of the current directory
+    # Extract the basename of the current directory
     dir_name=$(basename "$dir")
 
     # Change ownership to bill and the group corresponding to the directory name

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # check if a filename is provided and readable
 if [[ -z "$1" || ! -r "$1" ]]; then
@@ -10,10 +10,11 @@ fi
 # read filename as argument
 input_file="$1"
 
-# read lines of file and create an array from each line
+# Read lines of the file and store them in an array, -t to remove \n at EOL
 mapfile -t groups < "$input_file"
 
 for group in "${groups[@]}"; do
+    # store stder (2) and stdout (1) in output for later error handeling
     if output=$(groupadd "$group" 2>&1); then
         echo "Gruppe '$group' erfolgreich erstellt."
     else

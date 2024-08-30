@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Check if a file is provided and readable
 if [[ -z "$1" || ! -r "$1" ]]; then
@@ -10,7 +10,7 @@ fi
 # Read filename as argument
 input_file="$1"
 
-# Read lines of the file and store them in an array
+# Read lines of the file and store them in an array, -t to remove \n at EOL
 # Format of line: username[:group_to_add,second_group]  
 mapfile -t input < "$input_file"
 
@@ -37,6 +37,7 @@ for line in "${input[@]}"; do
 
     # Force password change on the next login
     if output=$(passwd -e "$user" 2>&1); then
+        # store stder (2) and stdout (1) in output for later error handeling
         echo "Benutzer '$user' muss beim nächsten Login sein Passwort ändern."
     else
         echo "Fehler beim Erzwingen der Passwortänderung für Benutzer '$user': $output"
@@ -48,6 +49,7 @@ for line in "${input[@]}"; do
     # If $groups is not empty
     if [ -n "$groups" ]; then
         # Create an array from the comma-separated group string (group1,group2,group3)
+        # InternalFieldSeperator, -r don't escape with \, -a append to array, <<< Here string
         IFS=',' read -r -a groups_array <<< "$groups"
 
         for group in "${groups_array[@]}"; do
